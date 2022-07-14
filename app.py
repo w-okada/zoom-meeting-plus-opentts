@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """OpenTTS web server"""
+import os
 import argparse
 import asyncio
 import dataclasses
@@ -866,7 +867,8 @@ async def handle_error(err) -> typing.Tuple[str, int]:
 # -----------------------------------------------------------------------------
 
 hyp_config = hypercorn.config.Config()
-hyp_config.bind = [f"{args.host}:{args.port}"]
+port = os.environ['PORT']
+hyp_config.bind = [f"{args.host}:{port}"]
 
 # Create shutdown event for Hypercorn
 shutdown_event = asyncio.Event()

@@ -296,3 +296,24 @@ DOCKER_PLATFORMS='--platform linux/amd64,linux/arm64,linux/arm/v7' make <lang>
 
 You may place pre-compiled Python wheels in the `download` directory. They will be used during the installation of Python packages.
 
+# メモ
+```
+$ docker builder prune
+$ make en
+
+$ heroku login
+$ heroku create zoom-meeting-plus-opentts
+$ docker tag synesthesiam/opentts:en registry.heroku.com/zoom-meeting-plus-opentts/web
+$ heroku container:login
+$ docker push registry.heroku.com/zoom-meeting-plus-opentts/web
+$ heroku container:release web
+
+$ heroku apps:info -s | grep web_url | cut -d= -f2
+```
+
+↓で確認
+https://zoom-meeting-plus-opentts.herokuapp.com/
+
+$ heroku logs --tail
+
+

@@ -131,6 +131,6 @@ RUN .venv/bin/python3 app.py --version
 
 EXPOSE 5500
 
-ENTRYPOINT [".venv/bin/python3", "app.py"]
+CMD [".venv/bin/python3", "app.py"]
 
 # -----------------------------------------------------------------------------
